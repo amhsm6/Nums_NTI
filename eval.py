@@ -35,8 +35,7 @@ def predict(image, model):
          Выходные параметры: вектор с определёнными цифрами на изображении.
     """
     ## TODO: Функция предсказания вектора цифр по заданной картинке
-    sample_shape = (480, 640)
-    image = np.reshape(image, (sample_shape[0], sample_shape[1], 1))
+    image = np.reshape(image, (image[0], image[1], 1))
     data = tf.convert_to_tensor([tf.cast(image, tf.float64) / 127.5 - 1.0])
     digit1 = model[0].predict(data)[0][0]
     digit2 = model[1].predict(data)[0][0]
